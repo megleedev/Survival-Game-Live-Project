@@ -19,13 +19,13 @@ For this story I chose a few asset packs listed in the Unreal Marketplace. The f
 > *Overhead view of the fully built level.*
 
 ## Movement and HUD 🏃 
-This story began the groundwork for the resource management functionality. After placing the First Person Character and setting the starting position, I created the HUD widget and decided on a design for the resource bars. Ultimately I chose a circular bar to display the player resources so I created a custom material that would gradually decrease as the player took actions in game. <br>
+This story began the groundwork for the resource management functionality. After placing the First Person Character and setting the starting position, I created the HUD widget and decided on a design for the resource bars. I thought about adding horizontal bars that would sit in the bottom left corner, but it looked a bit too cluttered and took up too much of the screen. Ultimately I chose a circular bar to display the player resources so I created a custom material that would gradually decrease as the player took actions in game. <br>
 
 ![Screenshot 2023-12-03 021932](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/0789598a-0d6c-4e4c-85be-68b6fbcecc32)
 > [!NOTE]
 > *Blueprint for the Circular Bar material.* <br>
 
-Once the material was finished I created an instance of it so it could be recolored for each of the player resources and added them to the HUD Canvas Panel: <br>
+Once the material was finished I created an instance of it so it could be recolored for each of the player resources and added them to the HUD Canvas Panel. I resized the stat bars depending on their importance as well to make them more visible to the player - Health and Stamina bars were larger and Food and Water bars were smaller: <br>
     🔹Red -  Health <br>
     🔹Green - Stamina <br>
     🔹Orange - Food <br>
@@ -36,25 +36,20 @@ Once the material was finished I created an instance of it so it could be recolo
 > *Canvas Panel within the HUD Widget.*
 
 ## Collectables and Obstacles 🌟
-I created AI for the Ghosts by writing a sequence of code that determines the path they can follow and when they pursue the player. First, I used RaycastHit2D to shoot a line from each Node left, right, up, and down so they will be able to find where the Nodes around them are placed. <br>
+To add functionality to the Resource Bars, I first created a map of string variables to track each stat. Then I created an Alter Stats function and functions for draining each stat:
 
-![image](https://github.com/megleedev/PacMan-Live-Project/assets/127007134/457806b1-b39a-450d-a673-5baa1b0d6c97)
-![image](https://github.com/megleedev/PacMan-Live-Project/assets/127007134/10c171c3-a3f2-4d06-babf-483818ca59d5)
+![Screenshot 2023-12-04 010737](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/6526d1b1-ea80-4a17-b9fc-0b785d54c6ff)
 
-Next, I created a function for the AI to determine what direction they can move from the Node they are currently sitting on. Depending on what direction the Nodes are placed around the spot the Ghost is located, the Ghost will decide which direction they can go. <br>
+![Screenshot 2023-12-04 011409](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/bcee0f87-f5fc-4865-86cd-36bbbcb4141b)
 
-![image](https://github.com/megleedev/PacMan-Live-Project/assets/127007134/ee7fddc0-fd27-4069-af43-7e11ed238e53)
+![Screenshot 2023-12-04 011432](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/28e5ee3c-3a9a-4131-afdb-b4159e82fbd0)
 
-Lastly, the Ghost will begin to pursue the player if it has moved out of the spawn space and into the game space. The Red Ghost begins the game moving out of the spawn space. Pink Ghost and Blue Ghost are on separate timers. <br>
+![Screenshot 2023-12-04 011523](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/bd72f4b6-90b4-4754-96af-1a71cccebea2)
 
-![image](https://github.com/megleedev/PacMan-Live-Project/assets/127007134/f88f2ce9-1a73-4052-9082-2819e5c74b59)
-![image](https://github.com/megleedev/PacMan-Live-Project/assets/127007134/b7d41a7b-9a9d-41fc-b66e-bf05d9cb68a4)
+***Resource Bars In Action***
 
-***AI In Action***
+![HUD_ResourceBars](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/97d4ad8a-7854-4c24-9624-d89be7d075c1)
 
-![](https://github.com/megleedev/PacMan-Live-Project/blob/main/AI_behavior.gif)
-
-This functionality gave me the most trouble by far. I intended to add the Orange Ghost as well but kept having movement issues with it that did not affect the others. I ran out of time to address it so the Orange Ghost was removed from the final product. I suspect that there is a problem with the distance between the Nodes in the spawn area but was in the process of debugging when the Live Project ended. <br>
 
 ## Menus ✅ 
 

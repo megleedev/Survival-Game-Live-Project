@@ -74,10 +74,32 @@ To access the Pause Menu the player first must be in game. While in game, they p
 
 ## Complete Gameplay 🎈  
 
-The final tasks on this project were to add the siren background noise and the sound of the Nodes being eaten. <br>
+The last aspect of the game I had the time to complete was the enemy AI. For this I started with the Wolf. I added a Pawn sensing component that would give the Wolf the ability to hear (blue wiring) and see (green wiring) the player. I did some adjustments to the range for both of those sensors to make sure they weren't too close or too far. Then I added two Arrow components that would draw lines in the direction the Wolf is facing and start their attack if they detect the player. <br>
+
+![Screenshot 2023-12-14 001106](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/ed0d7ff0-c44b-4ee9-a230-9bf590730a9a)
+> [!NOTE]
+> *Wolf with added components.*
+
+The enemy has three behaviors: Roaming, Following, Attacking.
+
+![Screenshot 2023-12-14 003614](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/54096672-de1b-43cd-bc9f-aa732cc67f41)
+> [!NOTE]
+> *Roaming is the default behavior. The enemy is not detecting the player and is performing a basic walk cycle to random points on a radius that covers the map.*
+
+![Screenshot 2023-12-14 004225](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/5d5632d1-f8d9-4677-a3be-381d1e70fb20)
+> [!NOTE]
+> *Following is the behavior that occurs when the player moves into the enemy's hearing or sight range. It begins to run after the player and will follow them around until they move out of the enemy's range again.*
+
+![Screenshot 2023-12-14 004420](https://github.com/megleedev/Survival-Game-Live-Project/assets/127007134/5c3432d2-0178-4e44-b17f-fb575d16185a)
+> [!NOTE]
+> *Attacking is the behavior that occurs when the enemy catches up to the player and is detected by the arrow components drawing lines in front of it. Attacks cause damage to the player and affects their Health stat.*
+
+***AI Behavior In Action***
+
+![AI_Behavior](https://github.com/megleedev/Survival-Game-Live-Project/blob/main/AI_Behavior.gif)
+
 
 ## Lessons Learned 👀
 
-  ⚪ TBD <br>
-  ⚪ TBD <br>
-  ⚪ TBD <br>
+  ⚪ Rather than using a map to track the various player stats, I should have created them as individual variables. That would have made them easier to reference and use within the various systems I designed. <br><br>
+  ⚪ I learned after I had already hardcoded the AI that there was an Unreal system for the exact functionality I was trying to implement called Behavior Trees. Using Behavior Trees would have been much more efficient.<br>
